@@ -1,0 +1,23 @@
+Set up ports for comm
+    Port SETUP:
+        Anyone can connect
+        Can requrest access to QuickFIX port by providing credentials
+        Our system will add them to the list of trusted clients
+    Port QUICKFIX:
+        Only trusted clients can set up a connection
+
+Convert to struct and pass to Action Handler
+    Keep a uniform format for all types of orders
+    Create Action Handler thread
+    Store data to log (in case recovery is needed) (check QuickFIX inbuilt features)
+    Call action handler
+    If action handler returns successfully:
+        return positive acknowledgement to client
+    else:
+        recover the data from log and try again
+    if Action Handler fails too many times:
+        return negative acknowledgement to client
+
+Points:
+
+Find an option in QuickFIX for subscribing to instruments.
