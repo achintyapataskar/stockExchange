@@ -1,0 +1,16 @@
+* Implement the action handler as a thread. Since all functions of the action handler must be simultaneously active they must each be executed in independent threads. *
+
+1. Take input in QuickFix format.
+	1.1. QuickFix Parser.
+	1.2. Data structure to interpret order.
+2. Log the message from QuickFix.
+	2.1. Add message as it is to the database.
+3. Forward message to Matching Engine.
+	3.1. Data Structure for forwarding to matching engine.
+	* Matching engine does not access database. We give it the needed info by querying the database.
+4. Recieve execution details for each trade executed from matching engine.
+	4.1. Fix a format for getting execution data from matching engine.
+5. Add execution details to database.
+6. Query database for report on execution orders.(Real Time market data)
+	6.1. Data structure for adding execution order.
+	* Who do we send it to and how??
